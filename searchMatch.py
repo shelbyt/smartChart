@@ -15,12 +15,13 @@ import sys
 
 screen_width = 1920
 screen_ratio = 1.7
+platform = sys.platform
 
 rt = 2 
 # For Mac need to check this for exceptions
 # If it's not win32 assume it's a MAC. Resolution information not
 # available.
-if (sys.platform == 'win32'):
+if (platform == 'win32'):
     for m in get_monitors():
         print(str(m))
         print(m.width)
@@ -201,7 +202,10 @@ def analyze():
 
         if(counter < 4):
             if k in rdict:
-                btn = PushButton(button_box_r1, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r1, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r1, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k, lbox_list[0] ])
                 btn.bg ="#9EF844" 
             else:
@@ -209,7 +213,11 @@ def analyze():
                 btn.bg ="#F84446" 
         elif(counter < 8):
             if k in rdict:
-                btn = PushButton(button_box_r2, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'])
+
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r2, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r2, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k, lbox_list[0] ])
                 btn.bg ="#9EF844" 
             else:
@@ -218,7 +226,11 @@ def analyze():
         elif(counter < 12):
 
             if k in rdict:
-                btn = PushButton(button_box_r3, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'])
+
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r3, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r3, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k, lbox_list[0] ])
                 btn.bg ="#9EF844" 
             else:
@@ -227,7 +239,11 @@ def analyze():
         elif(counter < 16):
 
             if k in rdict:
-                btn = PushButton(button_box_r4, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'])
+
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r4, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r4, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k, lbox_list[0] ])
                 btn.bg ="#9EF844" 
             else:
@@ -235,7 +251,11 @@ def analyze():
                 btn.bg ="#F84446" 
         elif(counter < 20):
             if k in rdict:
-                btn = PushButton(button_box_r5, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'])
+
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r5, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r5, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k, lbox_list[0] ])
                 btn.bg ="#9EF844" 
             else:
@@ -243,7 +263,10 @@ def analyze():
                 btn.bg ="#F84446" 
         elif(counter < 24):
             if k in rdict:
-                btn = PushButton(button_box_r6, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'])
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r6, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r6, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
                 btn.update_command(pval, [k,lbox_list[0]])
                 btn.bg ="#9EF844" 
             else:
