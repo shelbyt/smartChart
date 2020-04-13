@@ -120,10 +120,14 @@ def pval(val,listbox):
 
     str_list = []
     for sen_val in val_list:
-        term = term_dict[(sen_val, val)].lower()
-        term_replace = "►"+term+"◄"
-        sen_val = sen_val.replace(term, term_replace)
-        print (sen_val)
+        #term = term_dict[(sen_val, val)].lower()
+        subterm_list = term_dict[(sen_val, val)]
+
+        for term in subterm_list:
+            term_replace = "►"+term+"◄"
+            sen_val = sen_val.replace(term, term_replace)
+            print (sen_val)
+
         str_list.append(sen_val)
 
     display_str = "\n\n".join(str_list)
@@ -156,7 +160,7 @@ def analyze():
         data = list(reader)
         
         for line in data:
-            line[1] = line[1].replace(" ","")
+            #line[1] = line[1].replace(" ","")
             ldict[line[0]] = line[1:][0].split(',')
 
 
@@ -174,9 +178,13 @@ def analyze():
                 fixed_word = term.lower()
                 if fixed_word in sentence:
                     dup_check = [key,sentence]
+                    # If a sub term comes up we save it
+                    if (sentence,key) in term_dict:
+                        term_dict[(sentence,key)].append(fixed_word)
+                    else:
+                        term_dict[(sentence,key)] = [fixed_word]
                     if dup_check not in result:
                         result.append([key, sentence])
-                        term_dict[(sentence,key)] = term
                         if key in rdict:
                             rdict[key].append(sentence)
                         else:
