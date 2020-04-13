@@ -7,28 +7,38 @@
 from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window
 import re
 import nltk.data
-nltk.download('punkt')
 import csv
 from tabulate import tabulate
 from screeninfo import get_monitors
+import ssl
 
 screen_width = 1920
 screen_ratio = 1.7
 
-for m in get_monitors():
-    print(str(m))
-    print(m.width)
-    screen_width = m.width
-    screen_ratio = float(m.width)/m.height
+## For Mac need to check this for exceptions
+#for m in get_monitors():
+#    print(str(m))
+#    print(m.width)
+#    screen_width = m.width
+#    screen_ratio = float(m.width)/m.height
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt')
 
 rt = 2 
 
-if(screen_width == 1920):
-    rt = 1
-elif(screen_ratio < 2):
-    rt = 1 
-elif(screen_ratio > 2):
-    rt = 2 
+#if(screen_width == 1920):
+#    rt = 1
+#elif(screen_ratio < 2):
+#    rt = 1 
+#elif(screen_ratio > 2):
+#    rt = 2 
 
 resolution = [{
 
@@ -45,6 +55,7 @@ resolution = [{
     "form_box":12,
     "select_box":15,
 
+    "result_box":11,
     "button_pady": 10
 },
 
@@ -63,6 +74,7 @@ resolution = [{
     "form_box":9,
     "select_box":11,
 
+    "result_box":11,
     "button_pady":1 
 
 },
