@@ -11,16 +11,28 @@ import csv
 from tabulate import tabulate
 from screeninfo import get_monitors
 import ssl
+import sys
 
 screen_width = 1920
 screen_ratio = 1.7
 
-## For Mac need to check this for exceptions
-#for m in get_monitors():
-#    print(str(m))
-#    print(m.width)
-#    screen_width = m.width
-#    screen_ratio = float(m.width)/m.height
+rt = 2 
+# For Mac need to check this for exceptions
+# If it's not win32 assume it's a MAC. Resolution information not
+# available.
+if (sys.platform == 'win32'):
+    for m in get_monitors():
+        print(str(m))
+        print(m.width)
+        screen_width = m.width
+        screen_ratio = float(m.width)/m.height
+
+    if(screen_width == 1920):
+        rt = 1
+    elif(screen_ratio < 2):
+        rt = 1 
+    elif(screen_ratio > 2):
+        rt = 2 
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -31,14 +43,6 @@ else:
 
 nltk.download('punkt')
 
-rt = 2 
-
-#if(screen_width == 1920):
-#    rt = 1
-#elif(screen_ratio < 2):
-#    rt = 1 
-#elif(screen_ratio > 2):
-#    rt = 2 
 
 resolution = [{
 
