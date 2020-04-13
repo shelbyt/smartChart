@@ -1,4 +1,4 @@
-Days of illness,"Day,week,hour,wk,hr"
+Days of illness,"Day,week,hour,wk,hr,$date$"
 Fever,"Fever,febrile,temperature,thermometer,temp"
 Chills,"Chil,Rigor,sweat"
 Cough,"Cough,URI,resp symptoms"

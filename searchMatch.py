@@ -12,6 +12,7 @@ from tabulate import tabulate
 from screeninfo import get_monitors
 import ssl
 import sys
+import datefinder
 
 screen_width = 1920
 screen_ratio = 1.7
@@ -177,6 +178,13 @@ def analyze():
         for (key,terms) in ldict.items():
             for term in terms:
                 fixed_word = term.lower()
+                # If have a special date character $date$
+                # Insert the found dates into the ldict array as a term
+                if fixed_word == "$date$":
+                    match = datefinder.find_dates(sentence, source=True)
+                    for found_date in match:
+                        ldict[key].append(found_date[1])
+                    continue
                 if fixed_word in sentence:
                     dup_check = [key,sentence]
                     # If a sub term comes up we save it
