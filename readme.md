@@ -8,12 +8,12 @@ Word processors like Word and Google Docs require a user to use complex "regular
 
 
 ### The Solution:
-##### Create a CSV list of term:
+##### Create a CSV list of terms:
 
 ![SM Terms](images/terms-sm.png)
 
 
-##### Click buttons to match
+##### Enter text and click buttons to match
 
 
 ![SM Results](images/result-sm.png)
