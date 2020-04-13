@@ -1,4 +1,4 @@
-![SM Logo](images/logo-sm.png)
+![SM Logo](images/logo-sms.png)
 # Search Match
 
 Search Match (SM) takes in a csv of terms and matches text. 
@@ -13,7 +13,7 @@ Create a CSV list of term:
 
 
 Click buttons to match
-![SM Results](images/results-sm.png)
+![SM Results](images/result-sm.png)
 
 - - -
 ###### Copyright© Shelby Thomas 2020
