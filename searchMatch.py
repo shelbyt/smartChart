@@ -8,11 +8,10 @@ from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window
 import re
 import nltk.data
 import csv
-from tabulate import tabulate
 from screeninfo import get_monitors
 import ssl
 import sys
-import datefinder
+from dates import date_match
 
 screen_width = 1920
 screen_ratio = 1.7
@@ -181,9 +180,7 @@ def analyze():
                 # If have a special date character $date$
                 # Insert the found dates into the ldict array as a term
                 if fixed_word == "$date$":
-                    match = datefinder.find_dates(sentence, source=True)
-                    for found_date in match:
-                        ldict[key].append(found_date[1])
+                    ldict[key].extend(date_match)
                     continue
                 if fixed_word in sentence:
                     dup_check = [key,sentence]
