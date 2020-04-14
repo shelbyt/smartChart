@@ -277,6 +277,28 @@ def analyze():
             else:
                 btn = PushButton(button_box_r6, align="left",width="10",text=k,pady=resolution[rt]['button_pady'])
                 btn.bg ="#F84446" 
+        elif(counter < 28):
+            if k in rdict:
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r7, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r7, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
+                btn.update_command(pval, [k,lbox_list[0]])
+                btn.bg ="#9EF844" 
+            else:
+                btn = PushButton(button_box_r7, align="left",width="10",text=k,pady=resolution[rt]['button_pady'])
+                btn.bg ="#F84446" 
+        elif(counter < 32):
+            if k in rdict:
+                if(platform != 'win32'):
+                    btn = PushButton(button_box_r8, align="left",width="10",text=str("█"+k),command=pval,pady=resolution[rt]['button_pady'] )
+                else:
+                    btn = PushButton(button_box_r8, align="left",width="10",text=k,command=pval,pady=resolution[rt]['button_pady'] )
+                btn.update_command(pval, [k,lbox_list[0]])
+                btn.bg ="#9EF844" 
+            else:
+                btn = PushButton(button_box_r8, align="left",width="10",text=k,pady=resolution[rt]['button_pady'])
+                btn.bg ="#F84446" 
         counter += 1
         btn_list.append(btn)
     
@@ -295,6 +317,8 @@ button_box_r3 = Box(app,  align="top", border=True)
 button_box_r4 = Box(app,  align="top", border=True)
 button_box_r5 = Box(app,  align="top", border=True)
 button_box_r6 = Box(app,  align="top", border=True)
+button_box_r7 = Box(app,  align="top", border=True)
+button_box_r8 = Box(app,  align="top", border=True)
 
 form_box = Box(app,width="fill", border=True)
 form_box.text_size= resolution[rt]['form_box'] 
