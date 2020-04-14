@@ -121,8 +121,11 @@ def pval(val,listbox):
 
     str_list = []
     for sen_val in val_list:
-        #term = term_dict[(sen_val, val)].lower()
-        subterm_list = term_dict[(sen_val, val)]
+        subterm_list_raw = term_dict[(sen_val, val)]
+
+        # The subterm list array may have duplicates
+        # (TODO)shelby: Clarify why does it have dups?
+        subterm_list = list(set(subterm_list_raw))
 
         for term in subterm_list:
             term_replace = "►"+term+"◄"
