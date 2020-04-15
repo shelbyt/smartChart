@@ -45,6 +45,6 @@ Word processors like Word and Google Docs require a user to use complex "regular
 ![SM Results](images/result-sm.png)
 
 - - -
-###### Copyright© Shelby Thomas 2020
+###### Copyright© Shawn and Shelby Thomas 2020
 
 
