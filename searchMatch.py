@@ -320,7 +320,7 @@ def analyze():
     
 title_box = Box(app, width="fill", align="top", border=True)
 
-text_box = TextBox(title_box, text="",width="100", height="5",multiline='True')
+text_box = TextBox(title_box, text="Copy paste text here and hit ANALYZE",width="100", height="5",multiline='True')
 text_box.font = "Corbel"
 text_box.text_size =  resolution[rt]['select_box'] 
 
