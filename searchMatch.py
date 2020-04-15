@@ -11,6 +11,8 @@ from screeninfo import get_monitors
 import sys
 from dates import date_match
 from nltk.tokenize import sent_tokenize
+import nltk.data
+nltk.download('punkt')
 
 screen_width = 1920
 screen_ratio = 1.7
