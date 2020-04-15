@@ -6,13 +6,12 @@
 
 from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window,CheckBox
 import re
+import nltk.data
 import csv
 from screeninfo import get_monitors
+import ssl
 import sys
 from dates import date_match
-from nltk.tokenize import sent_tokenize
-import nltk.data
-nltk.download('punkt')
 
 screen_width = 1920
 screen_ratio = 1.7
@@ -36,6 +35,16 @@ if (platform == 'win32'):
         rt = 1 
     elif(screen_ratio > 2):
         rt = 2 
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt')
+
 
 resolution = [{
 
@@ -182,14 +191,16 @@ def analyze():
 
     data = text_box.value
     data_lower = data.lower()
+    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
     if(preprocess_checkbox.value == 0):
         remove_history = re.sub('past medical history.*?drug use',' drug use ',data_lower, flags=re.DOTALL)
         remove_physicala = re.sub('physical exam.*?assessment/plan','. ASSESSMENT',remove_history, flags=re.DOTALL)
         remove_complete = re.sub('physical exam.*?assessment and plan','. ASSESSMENT',remove_physicala, flags=re.DOTALL)
-        sentence_list = sent_tokenize(remove_complete)
+        sentence_list = tokenizer.tokenize(remove_complete)
+
     else:
-        sentence_list = sent_tokenize(data_lower)
+        sentence_list = tokenizer.tokenize(data_lower)
 
     for sentence in sentence_list:
         for (key,terms) in ldict.items():
