@@ -4,7 +4,7 @@
 # Copyright© Shelby Thomas 04/2020
 
 
-from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window
+from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window,CheckBox
 import re
 import csv
 from screeninfo import get_monitors
@@ -168,6 +168,7 @@ def analyze():
         lbox_list.clear()
     
 
+
     with open('conditions.csv', newline='') as f:
         reader = csv.reader(f)
         data = list(reader)
@@ -179,12 +180,14 @@ def analyze():
 
     data = text_box.value
     data_lower = data.lower()
-    remove_history = re.sub('past medical history.*?drug use',' drug use ',data_lower, flags=re.DOTALL)
-    remove_physicala = re.sub('physical exam.*?assessment/plan','. ASSESSMENT',remove_history, flags=re.DOTALL)
-    remove_complete = re.sub('physical exam.*?assessment and plan','. ASSESSMENT',remove_physicala, flags=re.DOTALL)
 
-    sentence_list = sent_tokenize(remove_complete)
-
+    if(preprocess_checkbox.value == 0):
+        remove_history = re.sub('past medical history.*?drug use',' drug use ',data_lower, flags=re.DOTALL)
+        remove_physicala = re.sub('physical exam.*?assessment/plan','. ASSESSMENT',remove_history, flags=re.DOTALL)
+        remove_complete = re.sub('physical exam.*?assessment and plan','. ASSESSMENT',remove_physicala, flags=re.DOTALL)
+        sentence_list = sent_tokenize(remove_complete)
+    else:
+        sentence_list = sent_tokenize(data_lower)
 
     for sentence in sentence_list:
         for (key,terms) in ldict.items():
@@ -321,9 +324,9 @@ text_box = TextBox(title_box, text="",width="100", height="5",multiline='True')
 text_box.font = "Corbel"
 text_box.text_size =  resolution[rt]['select_box'] 
 
+preprocess_checkbox = CheckBox(app, text="Analyze Raw Data",command=analyze)
 analyzebutton = PushButton(title_box, text="Analyze")
 analyzebutton.when_clicked = analyze
-
 
 button_box_r1 = Box(app,  align="top", border=True)
 button_box_r2 = Box(app,  align="top", border=True)
