@@ -26,7 +26,7 @@ The brightness of her cheek would shame those stars
 **ASSESSMENT**: That birds would sing and think it were not night.
 
 
-In the future this will be configurable.
+In the future this will be configurable. For now it can be toggled on and off.
 ![SM Example](images/example1.PNG)
 
 ### The Problem:
@@ -36,7 +36,7 @@ Word processors like Word and Google Docs require a user to use complex "regular
 ### The Solution:
 ##### Create a CSV list of terms:
 
-![SM Terms](images/terms-sm.PNG)
+![SM Terms](images/terms-sm.png)
 
 
 ##### Enter text and click buttons to match
