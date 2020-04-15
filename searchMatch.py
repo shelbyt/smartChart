@@ -17,23 +17,27 @@ screen_width = 1920
 screen_ratio = 1.7
 platform = sys.platform
 
-rt = 2 
+rt = 2
 # For Mac need to check this for exceptions
 # If it's not win32 assume it's a MAC. Resolution information not
 # available.
-if (platform == 'win32'):
-    for m in get_monitors():
-        print(str(m))
-        print(m.width)
-        screen_width = m.width
-        screen_ratio = float(m.width)/m.height
 
-    if(screen_width == 1920):
-        rt = 1
-    elif(screen_ratio < 2):
-        rt = 1 
-    elif(screen_ratio > 2):
-        rt = 2 
+
+
+if (platform != 'win32'):
+    rt = 3
+#    for m in get_monitors():
+#        print(str(m))
+#        print(m.width)
+#        screen_width = m.width
+#        screen_ratio = float(m.width)/m.height
+#
+#    if(screen_width == 1920):
+#        rt = 1
+#    elif(screen_ratio < 2):
+#        rt = 1 
+#    elif(screen_ratio > 2):
+#        rt = 2 
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -100,7 +104,27 @@ resolution = [{
 
     "button_pady": 2
 
+},
+
+{
+    "app_height":1075,
+    "app_width":750,
+
+    "lbox_height":325,
+    "lbox_width":375,
+
+    "fullsen_height":11,
+    "fullsen_width":"full",
+
+    "text_box":12,
+    "form_box":13,
+    "select_box":14,
+    "result_box":14,
+
+    "button_pady": 2
+
 }
+
 ]
 
 app = App(height=resolution[rt]['app_height'],width= resolution[rt]['app_width'] ,title="Search and Match",bg="#ffffff")
