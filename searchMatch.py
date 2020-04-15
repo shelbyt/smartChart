@@ -6,12 +6,11 @@
 
 from guizero import App, Text, TextBox, PushButton,Box, ListBox, Window
 import re
-import nltk.data
 import csv
 from screeninfo import get_monitors
-import ssl
 import sys
 from dates import date_match
+from nltk.tokenize import sent_tokenize
 
 screen_width = 1920
 screen_ratio = 1.7
@@ -21,8 +20,6 @@ rt = 3
 # For Mac need to check this for exceptions
 # If it's not win32 assume it's a MAC. Resolution information not
 # available.
-
-
 
 if (platform == 'win32'):
     for m in get_monitors():
@@ -37,17 +34,6 @@ if (platform == 'win32'):
         rt = 1 
     elif(screen_ratio > 2):
         rt = 2 
-
-
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
-nltk.download('punkt')
-
 
 resolution = [{
 
@@ -124,7 +110,6 @@ resolution = [{
     "button_pady": 2
 
 }
-
 ]
 
 app = App(height=resolution[rt]['app_height'],width= resolution[rt]['app_width'] ,title="Search and Match",bg="#ffffff")
@@ -198,8 +183,9 @@ def analyze():
     remove_physicala = re.sub('physical exam.*?assessment/plan','. ASSESSMENT',remove_history, flags=re.DOTALL)
     remove_complete = re.sub('physical exam.*?assessment and plan','. ASSESSMENT',remove_physicala, flags=re.DOTALL)
 
-    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    sentence_list = tokenizer.tokenize(remove_complete)
+    sentence_list = sent_tokenize(remove_complete)
+
+
     for sentence in sentence_list:
         for (key,terms) in ldict.items():
             for term in terms:
@@ -330,6 +316,7 @@ def analyze():
         btn_list.append(btn)
     
 title_box = Box(app, width="fill", align="top", border=True)
+
 text_box = TextBox(title_box, text="",width="100", height="5",multiline='True')
 text_box.font = "Corbel"
 text_box.text_size =  resolution[rt]['select_box'] 
