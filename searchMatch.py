@@ -17,27 +17,27 @@ screen_width = 1920
 screen_ratio = 1.7
 platform = sys.platform
 
-rt = 2
+rt = 3
 # For Mac need to check this for exceptions
 # If it's not win32 assume it's a MAC. Resolution information not
 # available.
 
 
 
-if (platform != 'win32'):
-    rt = 3
-#    for m in get_monitors():
-#        print(str(m))
-#        print(m.width)
-#        screen_width = m.width
-#        screen_ratio = float(m.width)/m.height
+if (platform == 'win32'):
+    for m in get_monitors():
+        print(str(m))
+        print(m.width)
+        screen_width = m.width
+        screen_ratio = float(m.width)/m.height
 #
-#    if(screen_width == 1920):
-#        rt = 1
-#    elif(screen_ratio < 2):
-#        rt = 1 
-#    elif(screen_ratio > 2):
-#        rt = 2 
+    if(screen_width == 1920):
+        rt = 1
+    elif(screen_ratio < 2):
+        rt = 1 
+    elif(screen_ratio > 2):
+        rt = 2 
+
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -79,11 +79,11 @@ resolution = [{
     "fullsen_height":11,
     "fullsen_width":"full",
 
-    "text_box":10,
-    "form_box":9,
-    "select_box":11,
+    "text_box":11,
+    "form_box":10,
+    "select_box":12,
 
-    "result_box":11,
+    "result_box":12,
     "button_pady":1 
 
 },
@@ -97,10 +97,10 @@ resolution = [{
     "fullsen_height":11,
     "fullsen_width":"full",
 
-    "text_box":10,
-    "form_box":9,
-    "select_box":11,
-    "result_box":11,
+    "text_box":11,
+    "form_box":10,
+    "select_box":12,
+    "result_box":12,
 
     "button_pady": 2
 
