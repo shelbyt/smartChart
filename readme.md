@@ -36,7 +36,7 @@ Word processors like Word and Google Docs require a user to use complex "regular
 ### The Solution:
 ##### Create a CSV list of terms:
 
-![SM Terms](images/terms-sm.PNG)
+![SM Terms](images/terms-sm.png)
 
 
 ##### Enter text and click buttons to match
