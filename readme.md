@@ -24,7 +24,7 @@ Mac:
 
 **SC Removes** *Past Medical History* and *Physical Exam* from text by removing everything in between:
 
-a) *Past Medical History* and *Drug Use*
+a) *Past Medical History: Diagnosis* to *Drug Use*
 
 b) *Physical Exam* to *Assessment/Plan*
 
