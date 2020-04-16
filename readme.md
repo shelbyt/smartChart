@@ -1,10 +1,10 @@
 ![SM Logo](images/logo-sms.png)
-# Search Match
+# SmartChart
 
 Search Match (SM) takes in a csv of terms and matches text. 
 
 ### Read Before Use
-**SM Removes** *Past Medical History* and *Physical Exam* from text by removing everything in between:
+**SC Removes** *Past Medical History* and *Physical Exam* from text by removing everything in between:
 
 a) *Past Medical History* and *Drug Use*
 
@@ -27,7 +27,7 @@ The brightness of her cheek would shame those stars
 
 
 In the future this will be configurable. For now it can be toggled on and off.
-![SM Example](images/example1.PNG)
+![SC Example](images/example1.PNG)
 
 ### The Problem:
 Word processors like Word and Google Docs require a user to use complex "regular expressions" to match multiple terms at the same time.
