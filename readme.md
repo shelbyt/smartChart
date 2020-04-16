@@ -4,6 +4,23 @@
 Search Match (SM) takes in a csv of terms and matches text. 
 
 ### Read Before Use
+
+**To Edit Search Terms:**
+Windows:
+1) Open SearchMatch folder
+2) Right click "conditions.csv"
+3) Open with Notepad
+4) Edit search terms
+5) Save when finished
+
+Mac:
+1) Right-click SearchMatch app
+2) Show package contents
+3) Open "Contents" folder
+4) Open "conditions.csv"
+5) Edit search terms
+6) Save when finished
+
 **SC Removes** *Past Medical History* and *Physical Exam* from text by removing everything in between:
 
 a) *Past Medical History* and *Drug Use*
