@@ -6,6 +6,7 @@ Search Match (SM) takes in a csv of terms and matches text.
 ### Read Before Use
 
 **To Edit Search Terms:**
+
 Windows:
 1) Open SearchMatch folder
 2) Right click "conditions.csv"
