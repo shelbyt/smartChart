@@ -194,7 +194,7 @@ def analyze():
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
     if(preprocess_checkbox.value == 0):
-        remove_history = re.sub('past medical history.*?drug use',' drug use ',data_lower, flags=re.DOTALL)
+        remove_history = re.sub('past medical history: diagnosis.*?drug use',' drug use ',data_lower, flags=re.DOTALL)
         remove_physicala = re.sub('physical exam.*?assessment/plan','. ASSESSMENT',remove_history, flags=re.DOTALL)
         remove_complete = re.sub('physical exam.*?assessment and plan','. ASSESSMENT',remove_physicala, flags=re.DOTALL)
         sentence_list = tokenizer.tokenize(remove_complete)
