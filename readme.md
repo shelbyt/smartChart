@@ -1,7 +1,7 @@
 ![SM Logo](images/logo-sms.png)
 # SmartChart
 
-Search Match (SM) takes in a csv of terms and matches text. 
+SmartChart takes in a csv of terms and matches text. 
 
 ### Read Before Use
 
